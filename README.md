@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
- ![BackendTechs](https://skillicons.dev/icons?i=java,spring,hibernate,maven)  ![Front](https://skillicons.dev/icons?i=javascript,typescript,react,redux,bootstrap,css,html)   ![DBTechs](https://skillicons.dev/icons?i=postgresql)  ![DevOps](https://skillicons.dev/icons?i=git,postman,docker,aws) 
+ ![Front](https://skillicons.dev/icons?i=react,redux,javascript,typescript,bootstrap,css,html)  ![BackendTechs](https://skillicons.dev/icons?i=java,spring,hibernate,maven)   ![DBTechs](https://skillicons.dev/icons?i=postgresql)  ![DevOps](https://skillicons.dev/icons?i=git,postman,docker,aws) 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
