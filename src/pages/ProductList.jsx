@@ -1,15 +1,26 @@
 import React, { useState,useEffect } from 'react'
-import { Icon, Menu, Table } from 'semantic-ui-react'
+import {Button, Icon, Menu, Table } from 'semantic-ui-react'
 import ProductService from '../services/productService'
 import { Link } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/actions/cartActions";
+import { toast } from "react-toastify";
 
 export default function ProdcutList() {
+  const dispatch = useDispatch();
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
     let productService=new ProductService();
     productService.getProducts().then(result=>setProducts(result.data.data))
   },[])
+
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.productName} sepete eklendi!`)
+   
+  };
 
 
   return (
@@ -22,6 +33,7 @@ export default function ProdcutList() {
             <Table.HeaderCell>Stok Adedi</Table.HeaderCell>
             <Table.HeaderCell>Açiklama</Table.HeaderCell>
             <Table.HeaderCell>Kategori</Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -33,6 +45,9 @@ export default function ProdcutList() {
               <Table.Cell><Link>{product.unitsInStock}</Link></Table.Cell>
               <Table.Cell><Link>{product.quantityPerUnit}</Link></Table.Cell>
                <Table.Cell><Link>{product.category.categoryName}</Link></Table.Cell>
+               <Table.Cell>
+                <Button onClick={()=>handleAddToCart(product)}>Sepete ekle</Button>
+              </Table.Cell>
           </Table.Row>
             ))
           }
